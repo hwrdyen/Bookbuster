@@ -5,6 +5,9 @@ import { Book } from "./models/bookModel.js";
 
 const app = express();
 
+// this will allow express to use JSON body now
+app.use(express.json());
+
 app.get("/", (request, response) => {
   console.log(request);
   return response.status(200).send(`Welcome to Bookbuster!`);
@@ -18,7 +21,7 @@ app.post("/book", async (request, response) => {
       !request.body.publishYear
     ) {
       return response.status(400).send({
-        message: `Send all required fields: title, author. publishYear`,
+        message: `Send all required fields: title, author, publishYear`,
       });
     }
     const newBook = {
@@ -28,6 +31,7 @@ app.post("/book", async (request, response) => {
     };
 
     const book = await Book.create(newBook);
+    return response.status(201).send(book);
   } catch (error) {
     console.log(error.message);
     return response.status(500).send({ message: error.message });
