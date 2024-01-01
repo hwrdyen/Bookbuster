@@ -1,0 +1,38 @@
+.NavBar {
+  &__Container {
+    background-color: rgb(125 211 252);
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    @media only screen and (min-width: 350px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      padding: 24px;
+    }
+    @media only screen and (min-width: 768px) {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 24px;
+      height: 90px;
+    }
+    @media only screen and (min-width: 1250px) {
+      padding: 24px;
+    }
+
+    &__LogoLink {
+      @media only screen and (min-width: 350px) {
+        text-align: center;
+      }
+      @media only screen and (min-width: 768px) {
+        height: 38px;
+      }
+      @media only screen and (min-width: 1250px) {
+      }
+    }
+  }
+}
